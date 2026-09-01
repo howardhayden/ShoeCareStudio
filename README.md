@@ -1,2 +1,80 @@
 # ShoeCareStudio
-A local-first, accessibility-oriented pre-production leather shoe-care reference with fail-closed care semantics and a procedural Three.js renderer.
+
+ShoeCareStudio is a local-first, accessibility-oriented **pre-production**
+reference for caring for black, smooth, finished leather shoes with the named
+Saphir Amiral Gloss profile. It combines a fail-closed semantic state machine,
+an explicit release-first interaction boundary, and a procedural Three.js
+reference renderer.
+
+This is a source extraction from the
+[Evenward footwear work packet](https://github.com/howardhayden/evenward/tree/28a681bdf4ef6e0073f3958dac0157fa77373c77/docs/footwear).
+It is not a physical-outcome measurement tool, safety certification,
+accessibility conformance claim, product endorsement, or production release.
+The application does not assert that a shoe is restored, protected, undamaged,
+or polished to a measured finish.
+
+## Current evidence boundary
+
+The additive v1.3 register contains **145 requirements**: 103
+`candidate-required` rows and 42 `inherited-blocker` rows. It contains **zero
+Verified requirements**, and `productionUnlocked` remains `false`. A passing
+build or merged source branch does not change that boundary.
+
+The historical EVW-prefixed IDs and Evenward-named candidate files in
+[`docs/footwear`](docs/footwear) are intentionally preserved for provenance and
+byte-level evidence anchors. See
+[`docs/STANDALONE-EXTRACTION.md`](docs/STANDALONE-EXTRACTION.md) for the exact
+standalone boundary.
+
+## Run locally
+
+Requires Node.js 22.13 or newer.
+
+```sh
+npm install
+npm run dev
+```
+
+Then open the local URL printed by Next.js. The care run remains in memory: the
+client contains no persistence, transport, tracker, or analytics path.
+
+## Verify
+
+```sh
+npm run check
+npm run test:footwear
+```
+
+`npm run check` lints, type-checks, creates the static export, runs the focused
+unit/source-contract suite, and inspects the rendered HTML. The footwear command
+also checks the generated register and exercises the bounded state model. These
+checks verify source behavior; they do not provide the missing physical,
+optical, device, accessibility, or independent-review evidence.
+
+## Architecture
+
+- `app/domain/footwear-care.ts` owns semantic state and fail-closed transitions.
+- `app/domain/footwear-care-store.ts` owns release-first lifecycle transactions.
+- `app/domain/footwear-material.ts` owns care-to-material conversion and fidelity demand.
+- `app/components/care/ShoeCareStudio.tsx` presents written instructions and controls.
+- `app/components/care/LeatherFootwearRenderer.tsx` consumes state as a visual reference.
+- `docs/footwear` preserves the atomized requirements, both red teams, corrections, and evidence.
+
+WebGL is a visual consumer, never the source of care truth. If the renderer is
+unavailable during approach or contact, the parent performs an ordered release
+and pauses the run.
+
+## License
+
+This repository is **public source-available software for noncommercial use**.
+It is **not open-source software**, because its public license does not permit commercial use.
+
+Original software is licensed under the
+[PolyForm Noncommercial License 1.0.0](LICENSE). The required notice is in
+[`NOTICE`](NOTICE). Separable original documentation is covered by CC BY-NC-SA
+4.0 as mapped in [`LICENSE-MAP.json`](LICENSE-MAP.json). Third-party components
+retain their own terms; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+No public repository term grants commercial use of the original software.
+
+See [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) for the repository policy
+summary. It is not an automatic offer of commercial terms.
