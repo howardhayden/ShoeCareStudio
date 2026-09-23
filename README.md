@@ -76,7 +76,9 @@ actually made available by the Owner.
 Permissions validly attached to earlier distributed copies remain governed by
 their own terms and do not automatically attach to later copies or snapshots.
 Historical license texts are retained as evidence, and third-party components
-keep their own terms; see
+keep their own terms. The superseded proprietary 1.0 text is retained only as
+historical evidence at
+[`LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt`](LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt); see
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). See
 [`COMMERCIAL_BASELINE.md`](COMMERCIAL_BASELINE.md),
 [`LICENSING.md`](LICENSING.md), and [`LICENSE-MAP.json`](LICENSE-MAP.json) for

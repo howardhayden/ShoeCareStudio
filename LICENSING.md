@@ -64,6 +64,8 @@ be deleted or rewritten to imply that permissions validly attached to earlier
 distributed copies vanished. Those permissions remain governed by their own
 terms and do not automatically attach to later copies or snapshots; this policy
 does not decide their application to a different copy or later distribution.
+The exact superseded proprietary 1.0 text is retained only as historical
+evidence at `LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt`.
 Third-party fonts, packages, algorithms, and media retain their
 own notices. A public GitHub repository remains subject to the platform's
 viewing and forking rights; this policy does not make public bytes private.

@@ -100,6 +100,14 @@ test("repository licensing is prospectively proprietary and preserves earlier gr
   assert.match(text("COMMERCIAL_BASELINE.md"), /does not revoke, narrow, or pretend to replace/i);
   assert.match(text("COMMERCIAL_BASELINE.md"), /LicenseRef-Hayden-Proprietary-1\.0/);
   assert.match(text("COMMERCIAL_BASELINE.md"), /LicenseRef-Hayden-Proprietary-1\.1/);
+  const historicalPolicy = bytes("LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt");
+  assert.equal(
+    createHash("sha256").update(historicalPolicy).digest("hex"),
+    "8278becffe88f697fd622a6399623d77f0ec923d1f76dd182a8d3ed43b7fc796",
+  );
+  assert.match(historicalPolicy.toString("utf8"), /^# Hayden Howard Proprietary Product and Source License 1\.0/);
+  assert.match(historicalPolicy.toString("utf8"), /SPDX-License-Identifier: LicenseRef-Hayden-Proprietary-1\.0/);
+  assert.notDeepEqual(historicalPolicy, bytes("LICENSE"));
   assert.equal(licenseMap.format, "howardhayden-license-map-v3");
   assert.equal(licenseMap.project, "ShoeCareStudio");
   assert.equal(licenseMap.source_available_not_open_source, true);

@@ -62,8 +62,10 @@ Proprietary Product and Source License 1.0
 (`LicenseRef-Hayden-Proprietary-1.0`) to version 1.1
 (`LicenseRef-Hayden-Proprietary-1.1`). The original commercial-baseline commit,
 `4e78e5c7f5ff3186606bc8a53b826bceb40db921`, and its 1.0 policy remain
-immutable historical evidence. This successor note does not change the baseline
-selector, parent pins, or earlier-copy findings above.
+immutable historical evidence. The exact superseded 1.0 terms are retained at
+[`LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt`](LICENSES/HISTORICAL/Hayden-Proprietary-1.0.txt),
+byte-for-byte matching that baseline commit. This successor note does not change
+the baseline selector, parent pins, or earlier-copy findings above.
 
 For the successor and later snapshots, permissions validly attached to earlier
 distributed copies remain governed by their own terms and do not automatically
