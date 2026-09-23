@@ -99,7 +99,7 @@ test("responsive, low-vision, and forced-color rules remain explicit source cont
 
 test("package metadata is prospectively proprietary and Three.js remains pinned", () => {
   assert.equal(packageJson.private, true);
-  assert.equal(packageJson.license, "LicenseRef-Hayden-Proprietary-1.0");
+  assert.equal(packageJson.license, "LicenseRef-Hayden-Proprietary-1.1");
   assert.equal(packageJson.dependencies.three, "0.185.1");
   assert.equal(packageJson.devDependencies["@types/three"], "0.185.4");
 });

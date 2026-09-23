@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
@@ -38,7 +39,7 @@ test("standalone manifest and path denominator stay care-only", () => {
   assert.equal(packageJson.name, "shoe-care-studio");
   assert.equal(packageJson.displayName, "ShoeCareStudio");
   assert.equal(packageJson.private, true);
-  assert.equal(packageJson.license, "LicenseRef-Hayden-Proprietary-1.0");
+  assert.equal(packageJson.license, "LicenseRef-Hayden-Proprietary-1.1");
   assert.equal(packageLock.packages[""]?.license, packageJson.license);
   assert.deepEqual(Object.keys(packageJson.dependencies).sort(), [
     "next",
@@ -79,9 +80,13 @@ test("standalone manifest and path denominator stay care-only", () => {
 
 test("repository licensing is prospectively proprietary and preserves earlier grants", () => {
   assert.notDeepEqual(bytes("LICENSE"), bytes("LICENSES/PolyForm-Noncommercial-1.0.0.txt"));
-  assert.match(text("LICENSE"), /^# Hayden Howard Proprietary Product and Source License 1\.0/);
-  assert.match(text("LICENSE"), /SPDX-License-Identifier: LicenseRef-Hayden-Proprietary-1\.0/);
-  assert.match(text("LICENSE"), /does not revoke or\s+narrow valid permissions attached to earlier distributed copies/i);
+  assert.equal(
+    createHash("sha256").update(bytes("LICENSE")).digest("hex"),
+    "07b7734eb4da7c79ffdd32d4641ab64eea1922e8149ebf50c430e5f54657628c",
+  );
+  assert.match(text("LICENSE"), /^# Hayden Howard Proprietary Product and Source License 1\.1/);
+  assert.match(text("LICENSE"), /SPDX-License-Identifier: LicenseRef-Hayden-Proprietary-1\.1/);
+  assert.match(text("LICENSE"), /permissions validly attached to earlier distributed copies remain governed by\s+their own terms and do not automatically attach to later copies or snapshots/i);
   assert.doesNotMatch(text("LICENSE"), /\bAI training\b/);
   assert.match(text("LICENSES/PolyForm-Noncommercial-1.0.0.txt"), /^# PolyForm Noncommercial License 1\.0\.0/);
   assert.match(text("LICENSES/CC-BY-NC-SA-4.0.txt"), /^Attribution-NonCommercial-ShareAlike 4\.0 International/);
@@ -93,10 +98,12 @@ test("repository licensing is prospectively proprietary and preserves earlier gr
   assert.match(text("COMMERCIAL_BASELINE.md"), /495d4538f38d92bd29841dd158ee12093a72fcbf/);
   assert.match(text("COMMERCIAL_BASELINE.md"), /96a95cd24069a01d0ce6b90f88fd39d62f2be026/);
   assert.match(text("COMMERCIAL_BASELINE.md"), /does not revoke, narrow, or pretend to replace/i);
+  assert.match(text("COMMERCIAL_BASELINE.md"), /LicenseRef-Hayden-Proprietary-1\.0/);
+  assert.match(text("COMMERCIAL_BASELINE.md"), /LicenseRef-Hayden-Proprietary-1\.1/);
   assert.equal(licenseMap.format, "howardhayden-license-map-v3");
   assert.equal(licenseMap.project, "ShoeCareStudio");
   assert.equal(licenseMap.source_available_not_open_source, true);
-  assert.equal(licenseMap.default_license, "LicenseRef-Hayden-Proprietary-1.0");
+  assert.equal(licenseMap.default_license, "LicenseRef-Hayden-Proprietary-1.1");
   assert.equal(licenseMap.commercial_use_granted, false);
   assert.equal(licenseMap.implementation_reuse_granted, false);
   assert.equal(licenseMap.noncommercial_reuse_granted, false);
@@ -105,9 +112,9 @@ test("repository licensing is prospectively proprietary and preserves earlier gr
   assert.deepEqual(licenseMap.permissive_exceptions, []);
 
   const readme = text("README.md");
-  assert.match(readme, /LicenseRef-Hayden-Proprietary-1\.0/);
+  assert.match(readme, /LicenseRef-Hayden-Proprietary-1\.1/);
   assert.match(readme, /no general implementation[\s\S]*noncommercial-use right/i);
-  assert.match(readme, /Valid permissions attached to earlier distributed copies remain effective/i);
+  assert.match(readme, /Permissions validly attached to earlier distributed copies remain governed/i);
   assert.doesNotMatch(readme, /public source-available software for noncommercial use/i);
   assert.match(readme, /zero\s+Verified requirements/i);
   assert.match(readme, /productionUnlocked.*false/i);

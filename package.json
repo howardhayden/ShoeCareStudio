@@ -2,7 +2,7 @@
   "name": "shoe-care-studio",
   "version": "0.1.0",
   "description": "A local-first, accessibility-oriented pre-production leather shoe-care reference with fail-closed care semantics and a procedural Three.js renderer.",
-  "license": "LicenseRef-Hayden-Proprietary-1.0",
+  "license": "LicenseRef-Hayden-Proprietary-1.1",
   "private": true,
   "engines": {
     "node": ">=22.13.0"

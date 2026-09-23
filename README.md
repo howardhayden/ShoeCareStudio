@@ -67,16 +67,16 @@ and pauses the run.
 ## License
 
 Owner-controlled material in this snapshot is offered prospectively under the
-[Hayden Howard Proprietary Product and Source License 1.0](LICENSE), identified
-as `LicenseRef-Hayden-Proprietary-1.0`. It grants no general implementation
+[Hayden Howard Proprietary Product and Source License 1.1](LICENSE), identified
+as `LicenseRef-Hayden-Proprietary-1.1`. It grants no general implementation
 reuse, modification, redistribution, self-hosting, or noncommercial-use right.
 Official-product use is limited to the free offering or purchased entitlement
 actually made available by the Owner.
 
-Valid permissions attached to earlier distributed copies remain effective for
-those copies and licensed material according to their own terms; they do not
-automatically attach to a later snapshot. Historical license texts are retained
-as evidence, and third-party components keep their own terms; see
+Permissions validly attached to earlier distributed copies remain governed by
+their own terms and do not automatically attach to later copies or snapshots.
+Historical license texts are retained as evidence, and third-party components
+keep their own terms; see
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). See
 [`COMMERCIAL_BASELINE.md`](COMMERCIAL_BASELINE.md),
 [`LICENSING.md`](LICENSING.md), and [`LICENSE-MAP.json`](LICENSE-MAP.json) for

@@ -54,3 +54,19 @@ Dated footwear v1.3 decisions, registers, and extraction records remain
 historical evidence. Their then-current noncommercial distribution directives
 do not override this later prospective baseline, and their product-safety and
 production-gate findings are unchanged.
+
+## Proprietary policy successor
+
+On 2026-09-23, the active prospective policy advanced from Hayden Howard
+Proprietary Product and Source License 1.0
+(`LicenseRef-Hayden-Proprietary-1.0`) to version 1.1
+(`LicenseRef-Hayden-Proprietary-1.1`). The original commercial-baseline commit,
+`4e78e5c7f5ff3186606bc8a53b826bceb40db921`, and its 1.0 policy remain
+immutable historical evidence. This successor note does not change the baseline
+selector, parent pins, or earlier-copy findings above.
+
+For the successor and later snapshots, permissions validly attached to earlier
+distributed copies remain governed by their own terms and do not automatically
+attach to later copies or snapshots. The current root `LICENSE` and active policy
+surfaces use version 1.1 unless an express, signed, material-specific grant says
+otherwise.

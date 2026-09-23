@@ -3,7 +3,7 @@
   "audited": "2026-09-01",
   "project": "ShoeCareStudio",
   "source_available_not_open_source": true,
-  "default_license": "LicenseRef-Hayden-Proprietary-1.0",
+  "default_license": "LicenseRef-Hayden-Proprietary-1.1",
   "commercial_use_granted": false,
   "precedence": [
     "applicable-law-and-platform-rights",
@@ -19,7 +19,7 @@
         "README.md",
         "docs/**"
       ],
-      "license": "LicenseRef-Hayden-Proprietary-1.0",
+      "license": "LicenseRef-Hayden-Proprietary-1.1",
       "scope": "original prose and non-code figures; code, substantive code excerpts, and code-embedded data remain under the default software license"
     },
     {
@@ -33,7 +33,7 @@
         "public/**/*.mp3",
         "public/**/*.ogg"
       ],
-      "license": "LicenseRef-Hayden-Proprietary-1.0",
+      "license": "LicenseRef-Hayden-Proprietary-1.1",
       "scope": "separable original media only; third-party notices and source-identifying marks override"
     },
     {
@@ -66,7 +66,7 @@
     "the authored footwear requirements, warnings, labels, evidence records, and test contracts"
   ],
   "permissive_exceptions": [],
-  "historical_notice": "Valid permissions attached to earlier distributed copies remain effective for those copies and licensed material according to their own terms. They do not automatically attach to a later snapshot. New pricing or this notice does not revoke those copy-specific rights. Historical and third-party license texts are not new grants over a current copy or new Owner-controlled material.",
+  "historical_notice": "Permissions validly attached to earlier distributed copies remain governed by their own terms and do not automatically attach to later copies or snapshots. This policy does not decide whether an earlier permission applies to a different copy or later distribution, and historical or third-party license texts are not new grants over new Owner-controlled material.",
   "policy_updated": "2026-09-23",
   "policy_license_file": "LICENSE",
   "implementation_reuse_granted": false,
