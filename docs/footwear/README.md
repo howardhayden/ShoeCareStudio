@@ -14,7 +14,7 @@ This directory preserves the requested sequence:
 10. `postimplementation-red-team-v1.0.md` - failed post-implementation adversarial review, including corrected and residual attacks.
 11. `implementation-evidence-v1.0.md` - requirement-to-code/test evidence map without Verified credit.
 12. `evidence-ledger-v1.0.md` - append-only issue-to-verification chains, including failed tests.
-13. `author-integration-decision-2026-09-01.md` - direct authority to integrate the reviewed source and publish the noncommercial standalone repository without changing production gates.
+13. `author-integration-decision-2026-09-01.md` - preserved direct authority to integrate the reviewed source and publish the then-noncommercial standalone repository without changing production gates.
 14. `requirements-v1.3-author-integration-delta.jsonl` - 8 additive source-governance and standalone-boundary atoms.
 15. `requirements-v1.3-current.jsonl` - mechanically assembled current 145-row register.
 16. `requirements-v1.3-summary.json` - composition hashes, integration authority, counts, roots, and closed production gate.
@@ -25,6 +25,15 @@ Run `npm run footwear:register` to validate exact schemas, dependency closure an
 
 The branch is an executable pre-production reference. The original Evenward production gate remains closed. The register deliberately retains inherited blockers for authored 3D assets, complete avatar/contact integration, full reflection architecture, physical-device performance, optical measurement, accessibility/human review, complete consumer coverage, and canonical specification propagation.
 
-A functioning route or passing automated test is not production compliance, a Verified requirement, independent permission to merge, or evidence that a physical shoe has been polished. The dated author decision now supplies narrow permission to commit, push, merge, and publish the public `ShoeCareStudio` source; it does not supply release or production credit.
+A functioning route or passing automated test is not production compliance, a Verified requirement, independent permission to merge, or evidence that a physical shoe has been polished. The dated author decision supplied narrow permission to commit, push, merge, and publish the public `ShoeCareStudio` source under the terms then in effect; it did not supply release or production credit.
 
 The v1.3 register contains 145 requirements: 103 `candidate-required`, 42 `inherited-blocker`, and zero Verified. `productionUnlocked` remains `false`.
+
+## Later licensing baseline
+
+The v1.3 decision and generated register are preserved historical evidence and
+must not be rewritten. For snapshots at or after the repository's
+[`COMMERCIAL_BASELINE.md`](../../COMMERCIAL_BASELINE.md), its prospective
+licensing policy supersedes only the v1.3 noncommercial distribution and
+repository-metadata directives. It does not change any safety, evidence,
+production, or verification gate recorded here.

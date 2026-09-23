@@ -2,6 +2,12 @@
 
 Date: 2026-09-01
 
+> Historical record: the licensing statements below describe the standalone
+> extraction when it was first distributed. They are preserved for provenance
+> and are prospectively superseded for later snapshots by
+> [`COMMERCIAL_BASELINE.md`](../COMMERCIAL_BASELINE.md). That later policy does
+> not change this record's product-safety or production gates.
+
 ShoeCareStudio is the bounded care extraction authorized by
 `EVD-AUTHOR-SCS-2026-09-01`. It is not a renamed copy of Evenward.
 

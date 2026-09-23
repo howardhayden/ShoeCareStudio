@@ -18,11 +18,19 @@ const packageJson = JSON.parse(text("package.json")) as {
   dependencies: Record<string, string>;
   devDependencies: Record<string, string>;
 };
+const packageLock = JSON.parse(text("package-lock.json")) as {
+  packages: Record<string, { license?: string }>;
+};
 const licenseMap = JSON.parse(text("LICENSE-MAP.json")) as {
+  format: string;
   project: string;
   source_available_not_open_source: boolean;
   default_license: string;
   commercial_use_granted: boolean;
+  implementation_reuse_granted: boolean;
+  noncommercial_reuse_granted: boolean;
+  institutional_reuse_exception: boolean;
+  no_automatic_permissive_exceptions: boolean;
   permissive_exceptions: unknown[];
 };
 
@@ -30,7 +38,8 @@ test("standalone manifest and path denominator stay care-only", () => {
   assert.equal(packageJson.name, "shoe-care-studio");
   assert.equal(packageJson.displayName, "ShoeCareStudio");
   assert.equal(packageJson.private, true);
-  assert.equal(packageJson.license, "PolyForm-Noncommercial-1.0.0");
+  assert.equal(packageJson.license, "LicenseRef-Hayden-Proprietary-1.0");
+  assert.equal(packageLock.packages[""]?.license, packageJson.license);
   assert.deepEqual(Object.keys(packageJson.dependencies).sort(), [
     "next",
     "react",
@@ -68,25 +77,41 @@ test("standalone manifest and path denominator stay care-only", () => {
   }
 });
 
-test("repository licensing is source-available, noncommercial, and internally coherent", () => {
-  assert.deepEqual(bytes("LICENSE"), bytes("LICENSES/PolyForm-Noncommercial-1.0.0.txt"));
-  assert.match(text("LICENSE"), /^# PolyForm Noncommercial License 1\.0\.0/);
+test("repository licensing is prospectively proprietary and preserves earlier grants", () => {
+  assert.notDeepEqual(bytes("LICENSE"), bytes("LICENSES/PolyForm-Noncommercial-1.0.0.txt"));
+  assert.match(text("LICENSE"), /^# Hayden Howard Proprietary Product and Source License 1\.0/);
+  assert.match(text("LICENSE"), /SPDX-License-Identifier: LicenseRef-Hayden-Proprietary-1\.0/);
+  assert.match(text("LICENSE"), /does not revoke or\s+narrow valid permissions attached to earlier distributed copies/i);
+  assert.doesNotMatch(text("LICENSE"), /\bAI training\b/);
+  assert.match(text("LICENSES/PolyForm-Noncommercial-1.0.0.txt"), /^# PolyForm Noncommercial License 1\.0\.0/);
+  assert.match(text("LICENSES/CC-BY-NC-SA-4.0.txt"), /^Attribution-NonCommercial-ShareAlike 4\.0 International/);
   assert.match(
     text("NOTICE"),
     /^Required Notice: Copyright \(c\) 2026 Hayden Howard\.$/m,
   );
+  assert.match(text("NOTICE"), /Policy effective prospectively/);
+  assert.match(text("COMMERCIAL_BASELINE.md"), /495d4538f38d92bd29841dd158ee12093a72fcbf/);
+  assert.match(text("COMMERCIAL_BASELINE.md"), /96a95cd24069a01d0ce6b90f88fd39d62f2be026/);
+  assert.match(text("COMMERCIAL_BASELINE.md"), /does not revoke, narrow, or pretend to replace/i);
+  assert.equal(licenseMap.format, "howardhayden-license-map-v3");
   assert.equal(licenseMap.project, "ShoeCareStudio");
   assert.equal(licenseMap.source_available_not_open_source, true);
-  assert.equal(licenseMap.default_license, "PolyForm-Noncommercial-1.0.0");
+  assert.equal(licenseMap.default_license, "LicenseRef-Hayden-Proprietary-1.0");
   assert.equal(licenseMap.commercial_use_granted, false);
+  assert.equal(licenseMap.implementation_reuse_granted, false);
+  assert.equal(licenseMap.noncommercial_reuse_granted, false);
+  assert.equal(licenseMap.institutional_reuse_exception, false);
+  assert.equal(licenseMap.no_automatic_permissive_exceptions, true);
   assert.deepEqual(licenseMap.permissive_exceptions, []);
 
   const readme = text("README.md");
-  assert.match(readme, /public source-available software for noncommercial use/i);
-  assert.match(readme, /not open-source software/i);
-  assert.match(readme, /does not permit\s+commercial use/i);
+  assert.match(readme, /LicenseRef-Hayden-Proprietary-1\.0/);
+  assert.match(readme, /no general implementation[\s\S]*noncommercial-use right/i);
+  assert.match(readme, /Valid permissions attached to earlier distributed copies remain effective/i);
+  assert.doesNotMatch(readme, /public source-available software for noncommercial use/i);
   assert.match(readme, /zero\s+Verified requirements/i);
   assert.match(readme, /productionUnlocked.*false/i);
+  assert.match(text("THIRD_PARTY_NOTICES.md"), /Third-party notices/);
 });
 
 test("standalone provenance pins the reviewed and merged Evenward source", () => {

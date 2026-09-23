@@ -66,15 +66,19 @@ and pauses the run.
 
 ## License
 
-This repository is **public source-available software for noncommercial use**.
-It is **not open-source software**, because its public license does not permit commercial use.
+Owner-controlled material in this snapshot is offered prospectively under the
+[Hayden Howard Proprietary Product and Source License 1.0](LICENSE), identified
+as `LicenseRef-Hayden-Proprietary-1.0`. It grants no general implementation
+reuse, modification, redistribution, self-hosting, or noncommercial-use right.
+Official-product use is limited to the free offering or purchased entitlement
+actually made available by the Owner.
 
-Original software is licensed under the
-[PolyForm Noncommercial License 1.0.0](LICENSE). The required notice is in
-[`NOTICE`](NOTICE). Separable original documentation is covered by CC BY-NC-SA
-4.0 as mapped in [`LICENSE-MAP.json`](LICENSE-MAP.json). Third-party components
-retain their own terms; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-No public repository term grants commercial use of the original software.
-
-See [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) for the repository policy
-summary. It is not an automatic offer of commercial terms.
+Valid permissions attached to earlier distributed copies remain effective for
+those copies and licensed material according to their own terms; they do not
+automatically attach to a later snapshot. Historical license texts are retained
+as evidence, and third-party components keep their own terms; see
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). See
+[`COMMERCIAL_BASELINE.md`](COMMERCIAL_BASELINE.md),
+[`LICENSING.md`](LICENSING.md), and [`LICENSE-MAP.json`](LICENSE-MAP.json) for
+scope and precedence. [`COMMERCIAL-LICENSE.md`](COMMERCIAL-LICENSE.md) is a
+policy summary, not an automatic offer of separate source rights.
